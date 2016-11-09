@@ -3,19 +3,19 @@
 namespace ConsoleTVs\Apify\Controllers;
 
 use App\Http\Controllers\Controller;
-use Schema;
 use DB;
+use Schema;
 
 class ApifyController extends Controller
 {
     public function table($table, $accessor = null, $data = null)
     {
-        if ( ! config('apify.enabled') ) {
+        if (!config('apify.enabled')) {
             abort(404);
         }
 
-        if ( $data ) {
-            $data = explode(",", $data);
+        if ($data) {
+            $data = explode(',', $data);
         }
 
         if ($error = $this->checkTable($table, $accessor, $data)) {
@@ -31,16 +31,16 @@ class ApifyController extends Controller
 
     public function checkTable($table, $accessor, $data)
     {
-        if ( ! Schema::hasTable($table) ) {
+        if (!Schema::hasTable($table)) {
             return ['error' => "The table $table does not exist."];
         }
 
-        if ( ! array_key_exists($table, config("apify.tables") ) ) {
+        if (!array_key_exists($table, config('apify.tables'))) {
             return ['error' => "The table $table is not set up in the configuration."];
         }
 
-        if ( $accessor && count($data) == 0) {
-            return ['error' => "If you provide an accessor you need to specify some data separated by comas"];
+        if ($accessor && count($data) == 0) {
+            return ['error' => 'If you provide an accessor you need to specify some data separated by comas'];
         }
 
         return false;
@@ -51,8 +51,8 @@ class ApifyController extends Controller
         $columns = Schema::getColumnListing($table);
 
         $final_columns = [];
-        foreach ( $columns as $column ) {
-            if ( in_array($column, config("apify.tables.$table") ) ) {
+        foreach ($columns as $column) {
+            if (in_array($column, config("apify.tables.$table"))) {
                 array_push($final_columns, $column);
             }
         }
@@ -75,7 +75,7 @@ class ApifyController extends Controller
 
         foreach ($rows as $row) {
             $row_data = [];
-            foreach ( $columns as $column ) {
+            foreach ($columns as $column) {
                 $row_data[$column] = $row->$column;
             }
             array_push($data, $row_data);

@@ -28,7 +28,7 @@ return [
 
             // The columns from the table that will be displayed in the JSON
 
-            'id', 'name', 'email', 'created_at', 'updated_at'
+            'id', 'name', 'email', 'created_at', 'updated_at',
 
         ],
 
