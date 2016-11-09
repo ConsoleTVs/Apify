@@ -1,6 +1,11 @@
 # Apify
-
 ## API generator for Laravel 5
+
+[![StyleCI](https://styleci.io/repos/73238760/shield?branch=master)](https://styleci.io/repos/73238760)
+![StyleCI](https://img.shields.io/badge/Built_for-Laravel-green.svg?style=flat-square)
+![StyleCI](https://img.shields.io/github/license/consoletvs/apify.svg?style=flat-square)
+
+![Apify Logo](http://i.imgur.com/cW6EpHY.png)
 
 ## Table Of Contents
 
@@ -106,13 +111,17 @@ The ```1``` determines the minutes to wait if the max calls are exceded.
 
 Some examples:
 
-*http://localhost/web/Laralum3/public/api/apify/users* (example URL)
+```
+http://localhost/web/Laralum3/public/api/apify/users (example URL)
+```
 
 ```json
 {"users":[{"id":1,"name":"\u00c8rik Campobadal","email":"ConsoleTVs@gmail.com","created_at":"2016-09-22 16:13:28","updated_at":"2016-10-02 11:18:25"},{"id":2,"name":"Second User","email":"ConsoleTV2s@gmail.com","created_at":"2016-09-21 16:13:28","updated_at":"2016-09-22 16:20:00"},{"id":3,"name":"Third User","email":"ConsoleTV3s@gmail.com","created_at":"2016-08-22 16:13:28","updated_at":"2016-09-22 16:20:00"}]}
 ```
 
-*http://localhost/web/Laralum3/public/api/apify/users/email/ConsoleTVs@gmail.com,ConsoleTV3s@gmail.com* (example URL)
+```
+http://localhost/web/Laralum3/public/api/apify/users/email/ConsoleTVs@gmail.com,ConsoleTV3s@gmail.com (example URL)
+```
 
 ```json
 {"users":[{"id":1,"name":"\u00c8rik Campobadal","email":"ConsoleTVs@gmail.com","created_at":"2016-09-22 16:13:28","updated_at":"2016-10-02 11:18:25"},{"id":3,"name":"Third User","email":"ConsoleTV3s@gmail.com","created_at":"2016-08-22 16:13:28","updated_at":"2016-09-22 16:20:00"}]}
